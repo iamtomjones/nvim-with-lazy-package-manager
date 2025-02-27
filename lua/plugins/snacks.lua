@@ -5,23 +5,12 @@ return {
     ---@type snacks.Config
     opts = {
         bigfile = { enabled = true },
-        -- dashboard = { enabled = true },
-
-        dashboard = {
-            header = [[
-████████╗     ██╗
-╚══██╔══╝     ██║
-   ██║        ██║
-   ██║     ██╗██║
-   ██║     ██║██║
-   ╚═╝     ╚═╝╚═╝]],
-        },
-
+        dashboard = { enabled = true },
         indent = { enabled = true },
         input = { enabled = true },
         notifier = {
             enabled = true,
-            timeout = 3000,
+            timeout = 2000,
         },
         git = {
             enabled = true,
@@ -37,7 +26,7 @@ return {
         words = { enabled = true },
         styles = {
             notification = {
-                -- wo = { wrap = true } -- Wrap notifications
+                wo = { wrap = true } -- Wrap notifications
             }
         },
         win = {

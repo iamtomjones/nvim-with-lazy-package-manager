@@ -1,6 +1,6 @@
 {
   "LuaSnip": { "branch": "master", "commit": "c9b9a22904c97d0eb69ccb9bab76037838326817" },
-  "avante.nvim": { "branch": "main", "commit": "9c9fadd256d6138d771e17b9ca68905908e16c17" },
+  "avante.nvim": { "branch": "main", "commit": "77c5ffeb784cf2b6e892401856441b8dfd38e175" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "99290b3ec1322070bcfb9e846450a46f6efa50f0" },
   "coc.nvim": { "branch": "release", "commit": "89351198293cfe1fb6c3a7c5fbcb358969534802" },
   "copilot.lua": { "branch": "master", "commit": "30321e33b03cb924fdcd6a806a0dc6fa0b0eafb9" },
