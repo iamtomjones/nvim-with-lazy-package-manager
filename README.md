@@ -12,7 +12,7 @@ brew install nvim
 
 Next you will clone this repo onto your machine by running the following command.
 
-```
+```bash
 git clone git@github.com:iamtomjones/nvim-with-lazy-package-manager.git ~/.config/nvim/
 ```
 
@@ -27,6 +27,14 @@ Open neovim in your terminal and Lazyvim will install the plugins I like to use.
 ## Plugins
 
 For information on the plugins being used, visit the github repos for each of them to find the documentation.
+
+## Lazygit
+
+I'm using lazygit and [snacks.nvim](https://github.com/folke/snacks.nvim) has an integration with this which can be enabled or disabled. To use it, you'll need to install lazygit on your machine. I use the following homebrew command on my mac, but other installation details can be found [here](https://github.com/jesseduffield/lazygit).
+
+```bash
+brew install lazygit
+```
 
 ## Why not just use [LazyVim](https://www.lazyvim.org/) or another nvim distro
 
