@@ -28,7 +28,7 @@ Open neovim in your terminal and Lazyvim will install the plugins I like to use.
 
 For information on the plugins being used, visit the github repos for each of them to find the documentation.
 
-### Why not just use [LazyVim](https://www.lazyvim.org/) or another nvim distro
+## Why not just use [LazyVim](https://www.lazyvim.org/) or another nvim distro
 
 Good question. LazyVim is great but comes with more than I like to use, and so do other distros. In my previous nvim configuration I was using [Packer](https://github.com/wbthomason/packer.nvim) as the package manager and had curated a nice group of plugins. I don't really like too many bells and whistles. I used that same config for a couple of years, but Packer isn't maintained anymore and lazy.nvim is a pretty good replacement.
 
