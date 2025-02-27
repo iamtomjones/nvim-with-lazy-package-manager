@@ -16,7 +16,7 @@ Next you will clone this repo onto your machine by running the following command
 git clone git@github.com:iamtomjones/nvim-with-lazy-package-manager.git ~/.config/nvim/
 ```
 
-## Lazyvim package Manager
+## Lazyvim package manager
 
 This config is using lazyvim as the package manager and follows the [structured setup](https://lazy.folke.io/installation).
 
