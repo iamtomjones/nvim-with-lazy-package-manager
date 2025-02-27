@@ -1,11 +1,11 @@
 # My nvim config setup guide
 
-## Install Neovim
+## Install nvim
 
 You'll firstly need to install neovim onto your computer. Full instructions on the various ways to do that can be found [here](https://github.com/neovim/neovim/blob/master/INSTALL.md). But I use a mac and install with homebrew.
 
 ```bash
-brew install neovim
+brew install nvim
 ```
 
 ## Clone this repo
