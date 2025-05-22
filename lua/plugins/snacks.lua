@@ -7,7 +7,13 @@ return {
         bigfile = { enabled = true },
         dashboard = { enabled = true },
         indent = { enabled = true },
-        input = { enabled = true },
+        input = {
+            position = "float",
+            title_pos = "center",
+            height = 1,
+            width = 120,
+            row = 10
+        },
         notifier = {
             enabled = true,
             timeout = 2000,

@@ -1,6 +1,6 @@
 return {
     'lewis6991/gitsigns.nvim',
-    config = function()
+    opts = {
         current_line_blame = true
-    end
+    }
 }

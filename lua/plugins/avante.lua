@@ -5,6 +5,16 @@ return {
         lazy = false,
         version = false, -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
         opts = {
+            provider = "copilot",
+            copilot = {
+                endpoint = "https://api.githubcopilot.com",
+                model = "claude-3.7-sonnet",
+                proxy = nil, -- [protocol://]host[:port] Use this proxy
+                allow_insecure = false, -- Allow insecure server connections
+                timeout = 60000, -- Timeout in milliseconds
+                temperature = 0,
+                max_tokens = 8192,
+            },
             behaviour = {
                 enable_token_counting = false,
             },
