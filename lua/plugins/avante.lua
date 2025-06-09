@@ -6,14 +6,18 @@ return {
         version = "*", -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
         opts = {
             provider = "copilot",
-            copilot = {
-                endpoint = "https://api.githubcopilot.com",
-                model = "claude-3.7-sonnet",
-                proxy = nil, -- [protocol://]host[:port] Use this proxy
-                allow_insecure = false, -- Allow insecure server connections
-                timeout = 30000, -- Timeout in milliseconds
-                temperature = 0,
-                max_tokens = 100000,
+            providers = {
+                copilot = {
+                    endpoint = "https://api.githubcopilot.com",
+                    model = "claude-sonnet-4",
+                    proxy = nil,            -- [protocol://]host[:port] Use this proxy
+                    allow_insecure = false, -- Allow insecure server connections
+                    timeout = 30000,        -- Timeout in milliseconds
+                    extra_request_body = {
+                        temperature = 0,
+                        max_tokens = 8192,
+                    },
+                },
             },
             behaviour = {
                 enable_token_counting = false,
@@ -28,7 +32,19 @@ return {
                     prefix = '🚀',
                     height = 30,
                 },
-            }
+            },
+            -- system_prompt as function ensures LLM always has latest MCP server state
+            -- This is evaluated for every message, even in existing chats
+            system_prompt = function()
+                local hub = require("mcphub").get_hub_instance()
+                return hub and hub:get_active_servers_prompt() or ""
+            end,
+            -- Using function prevents requiring mcphub before it's loaded
+            custom_tools = function()
+                return {
+                    require("mcphub.extensions.avante").mcp_tool(),
+                }
+            end,
         },
         -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
         build = "make",
