@@ -57,6 +57,21 @@ vim.keymap.set("n", "<leader>df", vim.diagnostic.open_float)
 -- format page
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
+-- Auto-format on save
+vim.api.nvim_create_autocmd("BufWritePre", {
+    pattern = "*",
+    callback = function()
+        -- Only format if LSP client supports formatting
+        local clients = vim.lsp.get_clients({ bufnr = 0 })
+        for _, client in ipairs(clients) do
+            if client.server_capabilities.documentFormattingProvider then
+                vim.lsp.buf.format({ async = false })
+                break
+            end
+        end
+    end,
+})
+
 -- next and previous buffers
 vim.keymap.set("n", "<S-p>", ":bp<CR>")
 vim.keymap.set("n", "<S-n>", ":bn<CR>")
@@ -127,7 +142,9 @@ require("lazy").setup({
     spec = {
         {
             -- "folke/tokyonight.nvim",
-            "catppuccin/nvim", name = "catppuccin", priority = 1000,
+            "catppuccin/nvim",
+            name = "catppuccin",
+            priority = 1000,
             -- "EdenEast/nightfox.nvim",
             config = function() vim.cmd.colorscheme "catppuccin" end
         },
