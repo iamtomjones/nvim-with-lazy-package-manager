@@ -126,8 +126,10 @@ vim.opt.autoread = true
 require("lazy").setup({
     spec = {
         {
-            "folke/tokyonight.nvim",
-            config = function() vim.cmd.colorscheme "tokyonight" end
+            -- "folke/tokyonight.nvim",
+            "catppuccin/nvim", name = "catppuccin", priority = 1000,
+            -- "EdenEast/nightfox.nvim",
+            config = function() vim.cmd.colorscheme "catppuccin" end
         },
         -- import your plugins
         { import = "plugins" },

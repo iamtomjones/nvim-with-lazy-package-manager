@@ -45,8 +45,14 @@ return {
                 ["."] = false,
             },
             copilot_node_command = 'node', -- Node.js version must be > 18.x
-            server_opts_overrides = {},
-
+            server_opts_overrides = {
+                settings = {
+                    advanced = {
+                        listCount = 10,
+                        inlineSuggestCount = 3,
+                    }
+                }
+            },
         })
     end,
 }
