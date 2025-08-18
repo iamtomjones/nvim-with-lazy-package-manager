@@ -1,10 +1,6 @@
 return {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
-    dependencies = {
-        -- Add dependency on your timer plugin
-        { dir = '~/.config/nvim/nvim-timer-plugin' }
-    },
     opts = function()
         return {
             --[[add your custom lualine config here]]
@@ -19,13 +15,6 @@ return {
                 lualine_b = { 'branch', 'diagnostics' },
                 lualine_c = { 'filename' },
                 lualine_x = {
-                    -- Add the timer component here
-                    {
-                        require('timer.lualine').provider,
-                        -- Optional: Add Lualine conditions or colors if needed
-                        -- cond = nil,
-                        -- color = { fg = colors.green, gui = 'bold' },
-                    },
                     'encoding',
                     'fileformat',
                     'filetype'

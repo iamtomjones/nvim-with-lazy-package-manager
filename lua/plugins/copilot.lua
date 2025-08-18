@@ -25,12 +25,14 @@ return {
                 hide_during_completion = true,
                 debounce = 75,
                 keymap = {
-                    accept = "<tab>",
-                    accept_word = false,
+                    accept = "<C-a>", -- Use control + a to accept the suggestion
+                    -- use control + carriage return to accept word
+                    -- Note: This is a workaround for the fact that <CR> is used to accept
+                    accept_word = "<C-e>",
                     accept_line = false,
                     next = "<M-]>",
                     prev = "<M-[>",
-                    dismiss = "<C-]>",
+                   dismiss = "<C-]>",
                 },
             },
             filetypes = {
