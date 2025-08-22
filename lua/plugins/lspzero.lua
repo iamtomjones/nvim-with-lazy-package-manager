@@ -20,7 +20,7 @@ return {
         end)
 
         lsp_zero.set_sign_icons({
-            error = '⛔️',
+            error = '👾',
             warn = '⚠️',
             hint = '💡',
             info = 'ℹ️',

@@ -1,17 +1,17 @@
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-	local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-	if vim.v.shell_error ~= 0 then
-		vim.api.nvim_echo({
-			{ "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-			{ out, "WarningMsg" },
-			{ "\nPress any key to exit..." },
-		}, true, {})
-		vim.fn.getchar()
-		os.exit(1)
-	end
+    local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+    local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+    if vim.v.shell_error ~= 0 then
+        vim.api.nvim_echo({
+            { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+            { out,                            "WarningMsg" },
+            { "\nPress any key to exit..." },
+        }, true, {})
+        vim.fn.getchar()
+        os.exit(1)
+    end
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -51,9 +51,6 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 -- vim.keymap.set("n", "Q", "<nop>")
 -- vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
--- show diagnostic float
-vim.keymap.set("n", "<leader>df", vim.diagnostic.open_float)
-
 -- format page
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
@@ -76,19 +73,15 @@ vim.keymap.set("n", "<leader>o", "<cmd>!open %<CR>", { silent = true })
 vim.keymap.set("n", "<S-f>", ":0,$s/")
 
 -- open buffers
-vim.keymap.set("n", "<S-b>", ":Telescope buffers<CR>")
+vim.keymap.set("n", "<S-b>", ":Telescope buffers<CR>");
 
 -- tailwind toggle show/hide classes
-vim.keymap.set(
-	"n",
-	"<leader>tt",
-	":TailwindConcealToggle<CR>",
-	{ desc = "Toggle Tailwind Classes", noremap = true, silent = true }
-)
+vim.keymap.set("n", "<leader>tt", ":TailwindConcealToggle<CR>",
+    { desc = "Toggle Tailwind Classes", noremap = true, silent = true })
 
 vim.opt.guicursor = ""
 vim.opt.cursorline = true
-vim.opt.mouse = "a"
+vim.opt.mouse = 'a'
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -125,19 +118,18 @@ vim.opt.updatetime = 50
 
 vim.opt.autoread = true
 
+
 -- Setup lazy.nvim
 require("lazy").setup({
-	spec = {
-		{
-			"rose-pine/neovim",
-			config = function()
-				vim.cmd.colorscheme("rose-pine")
-			end,
-		},
-		-- import your plugins
-		{ import = "plugins" },
-	},
-	-- Configure any other settings here. See the documentation for more details.
-	-- automatically check for plugin updates
-	checker = { enabled = true },
+    spec = {
+        {
+            "rose-pine/neovim",
+            config = function() vim.cmd.colorscheme "rose-pine" end
+        },
+        -- import your plugins
+        { import = "plugins" },
+    },
+    -- Configure any other settings here. See the documentation for more details.
+    -- automatically check for plugin updates
+    checker = { enabled = true },
 })
