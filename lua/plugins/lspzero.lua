@@ -27,7 +27,8 @@ return {
         })
 
         -- Tailwind intellisense support in CVA and CX
-        require 'lspconfig'.tailwindcss.setup {
+        vim.lsp.config.tailwindcss = {
+            cmd = { 'tailwindcss-language-server', '--stdio' },
             settings = {
                 tailwindCSS = {
                     experimental = {
@@ -49,10 +50,28 @@ return {
                 lsp_zero.default_setup,
                 lua_ls = function()
                     local lua_opts = lsp_zero.nvim_lua_ls()
-                    require('lspconfig').lua_ls.setup(lua_opts)
+                    vim.lsp.config.lua_ls = vim.tbl_extend('force', {
+                        cmd = { 'lua-language-server' }
+                    }, lua_opts)
                 end,
             }
         })
+
+        -- include wp stubs for php
+        vim.lsp.config.intelephense = {
+            cmd = { 'intelephense', '--stdio' },
+            settings = {
+                intelephense = {
+                    environment = {
+                        includePaths = {
+                            -- Replace this with your actual global composer vendor path
+                            '/Users/thomasjones/.composer/vendor/php-stubs/wordpress-globals',
+                            '/Users/thomasjones/.composer/vendor/php-stubs/wordpress-stubs',
+                        },
+                    },
+                },
+            },
+        }
 
         local cmp = require('cmp')
         local cmp_select = { behavior = cmp.SelectBehavior.Select }
